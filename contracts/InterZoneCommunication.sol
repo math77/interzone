@@ -20,12 +20,12 @@ abstract contract InterZoneCommunication is NonblockingLzApp {
   //bytes calldata _adapterParams
   function sendMessage(uint16 _dstChainId, address payable _refundAddress, bytes memory _payload, uint256 fee) internal {
 
-  	//dstchainid, payload, refundAddr, zropayaddr, adapparams, msg.value
-  	_lzSend(_dstChainId, _payload, _refundAddress, address(0x0), bytes(""), fee);
+    //dstchainid, payload, refundAddr, zropayaddr, adapparams, msg.value
+    _lzSend(_dstChainId, _payload, _refundAddress, address(0x0), bytes(""), fee);
   }
 
   function _createPayload(uint256 value, PayloadType ptype, address emitter) internal returns(bytes memory) {
-  	uint256[] memory arr;
+    uint256[] memory arr;
     return abi.encode(arr, value, ptype, emitter);
   }
 
